@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(searchImagesAction());
-  }, []);
+  }, [dispatch]);
     return (
         <div>
             <Header />

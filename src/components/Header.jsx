@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { searchImagesAction } from "../redux/actions/imagesSearch";
@@ -32,10 +31,11 @@ const Header = () => {
     dispatch(searchImagesAction(params));
   };
 
+  // eslint-disable-next-line
   const debouncedSearch = useCallback(
     _.debounce((value, countValue) => dispatch(searchImagesAction({count: countValue, query:value})), 500),
     []
-  );
+  )
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
