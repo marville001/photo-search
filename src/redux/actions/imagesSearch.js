@@ -26,9 +26,9 @@ export const searchImagesAction =(search={}) => async (dispatch) => {
         images: data.results,
       });
     } catch (e) {
-      // dispatch({
-      //   type: IMAGE_SEARCH.ERROR,
-      //   error: e.response.data.message,
-      // });
+      dispatch({
+        type: IMAGE_SEARCH.ERROR,
+        error: e.response.data.errors[0]
+      });
     }
   };

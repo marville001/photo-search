@@ -1,33 +1,33 @@
-import { IMAGE_SEARCH } from "../types";
+import { IMAGE_DETAILS } from "../types";
 
 const initialState = {
-  images: [],
+  image: {},
   loading: false,
   error: "",
 };
 
-const imagesReducer = (state = initialState, action) => {
+const detailsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case IMAGE_SEARCH.REQUEST:
+    case IMAGE_DETAILS.REQUEST:
       return {
         ...state,
-        images: [],
+        image: {},
         error: "",
         loading: true,
       };
-      
-    case IMAGE_SEARCH.SUCCESS:
+
+    case IMAGE_DETAILS.SUCCESS:
       return {
         ...state,
-        images: action.images,
+        image: action.image,
         error: "",
         loading: false,
       };
 
-    case IMAGE_SEARCH.ERROR:
+    case IMAGE_DETAILS.ERROR:
       return {
         ...state,
-        images: [],
+        image: {},
         error: action.error,
         loading: false,
       };
@@ -37,4 +37,4 @@ const imagesReducer = (state = initialState, action) => {
   }
 };
 
-export default imagesReducer;
+export default detailsReducer;
