@@ -1,31 +1,15 @@
 import "./App.css";
-import Heading from "./components/Heading";
-import UnsplashImage from "./components/UnsplashImage";
-
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
 
 function App() {
-  const [images, setImages] = useState([]);
-
-  useEffect(() => {
-    const apiRoot = "https://api.unsplash.com";
-    const accessKey = process.env.REACT_APP_ACCESSKEY;
-
-    axios
-      .get(`${apiRoot}/photos/random?client_id=${accessKey}&count=10`)
-      .then((res) => setImages([...res.data]))
-      .catch((e) => console.log({ error: e }));
-  }, []);
-
   return (
     <div className="App">
-      <Heading />
-      <div className="gallery">
-      {images.map((image) => (
-        <UnsplashImage key={image.id} image={image} />
-      ))}
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/details/:id" element={<Details />} />
+      </Routes>      
     </div>
   );
 }

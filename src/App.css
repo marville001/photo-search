@@ -57,7 +57,7 @@ input, select, button{
 }
 .title{
   color: #000;
-  margin-bottom: 20px;
+  margin: 20px 0px;
 }
 
 .search-form{
@@ -71,10 +71,16 @@ input, select, button{
   font-size: 14px;
 }
 
-.filter-form button{
+.filter-form .apply-btn{
   min-width: 100px;
   cursor: pointer;
   background-color: #12c99b;
+  color: #fff;
+}
+
+.filter-form .clear-btn{
+  cursor: pointer;
+  background-color: #c94612;
   color: #fff;
 }
 
@@ -87,4 +93,16 @@ input, select, button{
   .search-form input{
     min-width: auto;
   }
+}
+
+@media screen and (max-width: 500px) {
+  .filter-form button{
+    margin-top: 10px;
+  }
+}
+
+/* DETAILS */
+.details{
+  margin: 20px;
+  background-color: aquamarine;
 }
